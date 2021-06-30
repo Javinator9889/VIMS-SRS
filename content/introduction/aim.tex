@@ -1,0 +1,38 @@
+El objetivo principal de este \ac{PFM} es el de diseñar un sistema de recolección
+de métricas orientado a vehículos en el ámbito del \ac{IoT} (\ac{VIMS}, de ahora en adelante)
+que permita, utilizando los conectores estándar del vehículo, generar y almacenar
+información relevante al vehículo, la conducción y demás factores relevantes que
+se den mientras se interactúa con el vehículo.
+
+El sistema \ac{VIMS} deberá poder conectarse a Internet desde cualquier punto
+geográfico\footnote{dentro de las restricciones y limitaciones físicas, geográficas y
+demográficas del entorno.} usando el automóvil como sistema de alimentación y
+fuente de información. De esta manera, podrá enviar todo tipo de datos provistos 
+a un servidor en donde se gestionarán, almacenarán y procesarán para 
+una posterior visualización y generación de información.
+
+Además, el sistema deberá poder integrarse con cualquier vehículo del mercado que
+utilice las conexiones estándar reguladas y que trabaje con tramas e información
+estandarizada. En otro caso, el sistema no funcionará correctamente y puede
+comportarse de manera impredecible.
+
+La infraestructura del servidor por su parte deberá poder recibir una gran cantidad
+de datos (según estimaciones del mundo \ac{IoT}, se pueden recibir del orden de
+varios \ac{GB} diarios \cite{vishHowMuchData2020}) y gestionarlos debidamente.
+Cada dispositivo emisor se considerará único, por lo que los datos recibidos
+deberán ser clasificados acorde a quién los emite.
+
+Finalmente, desde el propio vehículo con un dispositivo externo (como un
+\textit{smartphone}) se podrán acceder a los datos en tiempo real que ofrece el
+vehículo mediante una interfaz hacia el sistema \ac{VIMS}. De esta manera, se
+podrá saber rápidamente el estado del automóvil y detectar fallos en el mismo.
+
+Así, el producto está orientado para su implantación en cualquier vehículo y que,
+haciendo uso de las características de conectividad inalámbrica que presentará, pueda
+adaptarse a nuevos automóviles y nuevas tramas estándar. Su venta está dirigida
+principalmente a conductores que cuenten con un vehículo con algún conector estándar
+compatible.
+
+Este documento sigue la taxonomía de especificación descrita en la sección anterior (\ref{sec:purpose})
+y abraca una actividad adicional que consistirá en una validación de los requisitos,
+definida en el anexo \ref{chap:validation}.

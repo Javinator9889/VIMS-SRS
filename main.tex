@@ -13,7 +13,7 @@
 % WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 % See the License for the specific language governing permissions and
 % limitations under the License.
-\documentclass[a4paper,oneside,12pt,titlepage]{scrreport}
+\documentclass[a4paper,oneside,12pt,titlepage,bibliography=totoc]{scrreport}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Packages
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -46,6 +46,7 @@
 \usepackage{tabularx}
 \usepackage{ltxtable}
 \usepackage[style=ieee]{biblatex}
+\bibliography{base/RS.bib}
 % \usepackage[nottoc]{tocbibind}
 \usepackage[official]{eurosym}
 \usepackage{gensymb}
@@ -190,19 +191,6 @@
 %% Creation of page-styles
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \setlength{\headheight}{8pt}
-% \lhead{\@author}\chead{\@title}\rhead{\DTMtoday}
-% \lfoot{}\cfoot{\thepage}\rfoot{}
-% \pagestyle{fancy}
-
-% \newpagestyle{long}{%
-% 	\sethead[\thepage][][\chaptername\ \thechapter:\ \chaptertitle]{\chaptername\ \thechapter:\ \chaptertitle}{}{\thepage}
-% 	\headrule
-% }
-
-% \newpagestyle{short}{%
-% 	\sethead[\thepage][][]{}{}{\thepage}
-% 	\headrule
-% }
 
 \newcolumntype{s}{>{\hsize=.5\hsize\linewidth=\hsize}X}
 % \newcolumntype{b}{>{\hsize=.75\hsize}X}
@@ -242,5 +230,15 @@
 
 %% The document itself
 \input{content/content.tex}
+
+%% Bibliography
+\printbibliography
+
+%% Validation
+\appendix
+\chapter{Validación de requisitos}\label{chap:validation}
+\input{content/appendix/validation.tex}
+\chapter{Diagramas que modelan el sistema}\label{chap:diagrams}
+\input{content/appendix/diagrams.tex}
 
 \end{document}
