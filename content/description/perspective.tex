@@ -1,0 +1,67 @@
+\ac{VIMS} se constituirá de un módulo independiente diseñado desde cero aprovechando
+las tecnologías que ofrecen los vehículos de forma estándar (como el conector
+\ac{OBD}).
+
+La intención principal es ofrecer un sistema de recolección de métricas autónomo,
+automático y lo más simple posible para el usuario, que sea ``conectar y funcionar'',
+con la intención de salvar la diferencia tecnológica existente entre vehículos
+y otorgarle al conductor el control total.
+
+Al igual que se narró en el alcance (\ref{sec:aim}), el objetivo principal del proyecto es
+el de desarrollar un sistema autónomo que pueda funcionar con cualquier vehículo
+del mercado (que cumpla con las condiciones especificadas) y que permita generar,
+recolectar, procesar y mostrar cientos de datos relativos al coche y su estado
+actual y estado pasado.
+
+Para ello, se necesitará de una conexión permanente y activa a Internet (siempre
+y cuando sea posible) por la cual se enviarán en flujo los datos del vehículo.
+En posteriores etapas de diseño se valorará la cantidad de datos a enviar según
+la red en uso, disponibilidad de los recursos, saturación local, \textit{jitter}
+en las comunicaciones, \dots
+
+Se considera de vital importancia la transmisión de, al menos, el 99\% de los
+datos recibidos\footnote{porcentaje estimado teniendo en cuenta problemas de
+rendimiento, saturación de la conexión, saturación de la red, ruido en la señal, etc. Se establece
+dicho valor ya que existe la posibilidad de que se pierda información y que desde el
+sistema no se pueda hacer nada para evitarlo.} (ya que es la funcionalidad principal 
+del sistema) conservando las
+marcas temporales en las que se generaron. Por consiguiente, si no se pueden
+transmitir los datos en un momento preciso se conservarán hasta un plazo máximo de
+7 días\footnote{en un plazo de una semana y según la infraestructura de redes
+actualmente desplegadas, es bastante probable que en algún punto haya conexión
+y se puedan enviar todas las tramas pendientes \cite{MobileIoTDeployment,loraallianceCoverageOperatorMaps}.} en donde se descartarán las
+entradas más antiguas.
+
+Por otra parte, se ofrece la posibilidad de ver los datos en tiempo real: dado que
+no siempre es adecuado observar los datos \textit{a posteriori} sino que muchas
+veces es necesario evaluarlos en el momento, se podrá observar información en
+tiempo casi real del estado del vehículo, información de sensores, etc. Esta
+visualización se realizará mediante un dispositivo externo al sistema como
+puede ser un \textit{smartphone}. Para facilitar la integración, se desarrollará
+en paralelo una aplicación móvil específicamente diseñada para \ac{VIMS}.
+
+Entre las demás características del producto, se contempla una más que es la
+geolocalización del vehículo. Para ello, se usarán las distintas redes con
+las que contará el producto así como que hará uso del \ac{GPS}. De esta forma,
+al usuario final no solo se le mostrarán estadísticas e información sobre sus
+viajes sino que también sabrá en qué puntos ha estado y así obtener más
+información con respecto a su conducción. Esto permite también usar \ac{VIMS} como
+medida de seguridad, en caso de hurto del vehículo, para saber su ubicación
+precisa. También puede ser útil como recordatorio de dónde estaba aparcado el
+coche, ya que solo habrá que revisar la última ubicación.
+
+Finalmente, el sistema deberá integrarse de forma fácil y sencilla, y así debe ser
+también su extracción del mismo y la operación con él. Esto se traduce en que el
+montaje sobre el vehículo debe ser sencillo así como su desmontaje, y que si
+se requiere el acceso a los puertos estándar el sistema no deberá ser un impedimento
+para ello.
+
+En definitiva, para conductores de vehículos que quieran conocer
+más información sobre su automóvil, que necesiten hacer diagnósticos o que quieran
+estadísticas/datos en tiempo casi real, \ac{VIMS} es un sistema autónomo integrado
+que ayuda al conductor a generar y obtener todos los datos mencionados en las
+situaciones anteriores. A diferencia de otras soluciones que se encuentran
+en el mercado, nuestro producto permite integrarse sin dificultades en cualquier
+vehículo que cumpla con los estándares y sin ninguna configuración adicional para
+el cliente. Además, es personalizable y propenso a recibir actualizaciones
+y mejoras que aumenten su funcionalidad y sean compatibles con nuevos vehículos.
