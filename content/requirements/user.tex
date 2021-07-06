@@ -130,37 +130,54 @@ el \textit{Velocímetro} o el \textit{Nivel de combustible} mientras que otros s
 mueven radicalmente de posición, como la \textit{Marcha actual}, la \textit{Temperatura 
 del motor}, etc.
 
-Si bien esta información no define directamente los requisitos de usuario (ya que son
-posibles valores a medir), establece varios puntos de partida y, junto con los comentarios
-y sugerencias de los encuestados, define de forma clara sus necesidades,
-a partir de las cuales se definen los siguientes requisitos:
+En general, se observa cómo los usuarios quieren tener más información sobre distintos
+elementos del vehículo y no necesariamente en ``tiempo real'' sino \textit{a posteriori},
+como información estadística. En particular, entre la comunidad de conductores prima
+información mecánica y relativa al estado del vehículo más allá de información sobre
+el viaje.
+
+Además, hay bastante interés en la automatización de ciertas acciones como el cierre
+de las puertas automáticamente, \textit{reset} del odómetro cuando se repuesta, 
+notificaciones cuando haya que realizar labores de mantenimiento, etc. Sin embargo,
+el diseño inicial del proyecto no contempla el realizar acciones sobre el automóvil
+principalmente porque los conectores estándar permiten la lectura de
+datos pero no la escritura. Para conseguir enviar información al vehículo sería
+necesario realizar un montaje directamente sobre los cables de los buses \ac{CAN} que
+tiene, escuchar de forma activa las tramas y generar la información a enviar.
+En principio, esto se encuentra fuera del alcance del proyecto, por lo que se
+ignoran todas las modificaciones sobre el automóvil en sí.
+
+Finalmente, se observa que hay un interés generalizado en que la interfaz sea
+simple, en que se pueda saber dónde se ha aparcado el vehículo y
+en que el sistema sea fluido y rápido.
+
+A partir de lo anterior, se definen los siguientes requisitos de usuario:
 
 \begin{enumerate}[label=\textbf{\texttt{RU-\arabic*}}]
   \item\label{ru:rt} Como usuario no necesito que la información se muestre en tiempo
-        real sino que se almacene para una posterior gestión.
+        real sino que se almacene para una posterior consulta, o bien en forma de
+        estadísticas o bien como datos en crudo.
   \item\label{ru:status} Como conductor me gustaría conocer de primera mano el estado
-        del motor, a nivel de temperatura de los elementos principales.
+        del motor, a niveles tanto de temperatura de los elementos principales como
+        de estado de los distintos elementos mecánicos del mismo.
   \item\label{ru:maintenance} Como usuario, me gustaría conocer fácilmente
         información relativa al mantenimiento del vehículo, como el desgaste de
         las ruedas, nivel de aceite, líquido de frenos, etc.
   \item\label{ru:notifications} Como usuario, y en estrecha relación con
         \ref{ru:maintenance}, me gustaría recibir una notificación o alerta sobre
         cuándo se debe realizar el mantenimiento del vehículo. Del mismo modo,
-        también querría ser notificado si se detecta algún error en el vehículo o
-        problema.
+        también querría ser notificado si se detecta algún error o problema
+        en el vehículo.
   \item\label{ru:parking} Como conductor, me gustaría saber dónde he aparcado el
         vehículo.
   \item\label{ru:stats} Como conductor, me gustaría que tras realizar un viaje
         o tras realizar un repostaje se generasen estadísticas que me sirviesen para
         analizar mi perfil de conducción.
   \item\label{ru:recommendations} Como usuario, me gustaría recibir recomendaciones
-        sobre mi estilo de conducción para optimizar el consumo o detectar picos.
+        sobre mi estilo de conducción para optimizar el consumo o entender mejor cómo
+        manejar el vehículo.
   \item\label{ru:speed} Como usuario, me gustaría que el sistema fuese fluido y
         funcionase bien, con tiempos de carga pequeños y sin ir a trompicones.
   \item\label{ru:intuitive} Como usuario, me gustaría que el sistema fuese accesible
         e intuitivo, simple a primera vista pero personalizable.
-  \item\label{ru:interactions} Como conductor me gustaría poder accionar elementos
-        del vehículo desde el exterior, como activar el aire acondicionado desde
-        el \textit{smartphone}, cerrar las puertas al superar cierta
-        velocidad, etc.
 \end{enumerate}
