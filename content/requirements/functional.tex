@@ -17,6 +17,13 @@ y características de \ac{VIMS}:
   \item\label{req:bt} El sistema usará redes \ac{PAN} para
         permitir la comunicación con dispositivos cercanos y mostrar información en
         tiempo casi real.
+  \item\label{req:start-stop} Cuando el vehículo se apague,
+        el sistema deberá transmitir los datos pendientes (o 
+        almacenarlos si no se cuenta con red -- dependencia \ref{dep:connectivity})
+        y proceder a su apagado. Este proceso no deberá durar más de 5 minutos (ver
+        \ref{nf:battery-duration}).
+  \item\label{req:ota} El sistema, usando la conectividad de red, podrá actualizarse
+        de forma remota para ofrecer nuevas funcionalidades.
 \end{enumerate}
 
 \subsubsection{Datos}
