@@ -1,0 +1,14 @@
+\subsubsection{Precisión}
+\begin{enumerate}[label=\textbf{\texttt{RNF-\arabic*}}]
+  \item\label{nf:accuracy} El módulo de geolocalización deberá ofrecer una precisión elevada,
+        de entre 5 y 10 metros. Sin embargo, no se considera algo crítico.
+  \item\label{nf:net-acc} En relación al requisito \ref{nf:accuracy}, si el 
+        módulo \ac{GPS} no se encuentra accesible se usarán las redes móviles para
+        obtener una ubicación aproximada. El rango máximo permitido está
+        entre 5 y 50 metros.
+  \item\label{nf:read-speed} El sistema deberá leer y recibir los datos del
+        conector estándar a la máxima velocidad que permita este. Así, si por
+        ejemplo el conector ofrece 100 kbps, \ac{VIMS} deberá leer a esa velocidad.
+        Sin embargo, con la intención de acotar este campo, se establece el máximo
+        de velocidad aceptable en hasta 200 kbps.
+\end{enumerate}
