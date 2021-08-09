@@ -15,7 +15,7 @@
     \hline
     \textbf{Descripción}                       & \multicolumn{2}{X|}{La placa identificará de forma inequívoca al conductor (usuario) y a sí misma frente al servidor.}                                                                                                                                      \\
     \hline
-    \multirow{5}{*}{\textbf{Secuencia normal}} & \textbf{Paso}                                                                                                          & \textbf{Acción}                                                                                                                    \\
+    \multirow{9}{*}{\textbf{Secuencia normal}} & \textbf{Paso}                                                                                                          & \textbf{Acción}                                                                                                                    \\
     \cline{2-3}
                                                & 1                                                                                                                      & \multicolumn{1}{L|}{El usuario se autentica contra la placa con su cuenta personal ya creada.}                                     \\
     \cline{2-3}
@@ -25,7 +25,7 @@
     \cline{2-3}
                                                & 4                                                                                                                      & \multicolumn{1}{L|}{La placa almacena la información del usuario y finaliza el proceso de inicio de sesión.}                       \\
     \hline
-    \multirow{2}{*}{\textbf{Excepciones}}      & \textbf{Paso}                                                                                                          & \textbf{Acción}                                                                                                                    \\
+    \multirow{4}{*}{\textbf{Excepciones}}      & \textbf{Paso}                                                                                                          & \textbf{Acción}                                                                                                                    \\
     \cline{2-3}
                                                & 2                                                                                                                      & \multicolumn{1}{L|}{La placa no cuenta con conexión a la red o el servidor no está disponible.}                                    \\
     \cline{2-3}
@@ -51,7 +51,7 @@
     \hline
     \textbf{Descripción}                       & \multicolumn{2}{X|}{El dispositivo \ac{VIMS} recibirá los datos del vehículo al que está conectado y los preparará para una posterior transmisión al servidor remoto de almacenamiento y gestión.}                                                                                                                                                                \\
     \hline
-    \multirow{5}{*}{\textbf{Secuencia normal}} & \textbf{Paso}                                                                                                                                                                                      & \textbf{Acción}                                                                                                                                              \\
+    \multirow{10}{*}{\textbf{Secuencia normal}} & \textbf{Paso}                                                                                                                                                                                      & \textbf{Acción}                                                                                                                                              \\
     \cline{2-3}
                                                & 1                                                                                                                                                                                                  & \multicolumn{1}{L|}{La placa \ac{VIMS} recibe los datos que el vehículo está generando de forma continuada.}                                                 \\
     \cline{2-3}
@@ -61,7 +61,7 @@
     \cline{2-3}
                                                & 4                                                                                                                                                                                                  & \multicolumn{1}{L|}{El servidor recibe la información transmitida por el sistema y la almacena para una posterior visualización y tratamiento.}              \\
     \hline
-    \multirow{6}{*}{\textbf{Excepciones}}      & \textbf{Paso}                                                                                                                                                                                      & \textbf{Acción}                                                                                                                                              \\
+    \multirow{9}{*}{\textbf{Excepciones}}      & \textbf{Paso}                                                                                                                                                                                      & \textbf{Acción}                                                                                                                                              \\
     \cline{2-3}
                                                & 1                                                                                                                                                                                                  & \multicolumn{1}{L|}{El vehículo no está conectado o no transmite datos.}                                                                                     \\
     \cline{2-3}
@@ -93,7 +93,7 @@
     \hline
     \textbf{Descripción}                       & \multicolumn{2}{X|}{El servidor, en conjunción con el resto de elementos del sistema, preparará los datos para generar información estadística útil para el usuario.}                                                                                                                                                   \\
     \hline
-    \multirow{4}{*}{\textbf{Secuencia normal}} & \textbf{Paso}                                                                                                                                                         & \textbf{Acción}                                                                                                                                 \\
+    \multirow{7}{*}{\textbf{Secuencia normal}} & \textbf{Paso}                                                                                                                                                         & \textbf{Acción}                                                                                                                                 \\
     \cline{2-3}
                                                & 1                                                                                                                                                                     & \multicolumn{1}{L|}{El usuario solicita al servidor visualizar estadísticas con respecto a sus vehículos.}                                      \\
     \cline{2-3}
@@ -129,7 +129,7 @@
     \hline
     \textbf{Descripción}                        & \multicolumn{2}{X|}{El servidor, en conjunción con el resto de elementos del sistema, detecta ciertos eventos y actúa generando una notificación que envía al usuario.}                                                                                                                                                                                                                                                                 \\
     \hline
-    \multirow{17}{*}{\textbf{Secuencia normal}} & \textbf{Paso}                                                                                                                                                           & \textbf{Acción}                                                                                                                                                                                                                                               \\
+    \multirow{18}{*}{\textbf{Secuencia normal}} & \textbf{Paso}                                                                                                                                                           & \textbf{Acción}                                                                                                                                                                                                                                               \\
     \cline{2-3}
                                                 & 1                                                                                                                                                                       & \multicolumn{1}{L|}{El servidor en un instante puntual produce y procesa un evento.}                                                                                                                                                                          \\
     \cline{2-3}
@@ -165,7 +165,7 @@
     \hline
     \textbf{Descripción}                       & \multicolumn{2}{X|}{Un usuario podrá visualizar información en tiempo real sobre su vehículo mediante la aplicación.}                                                                                                                              \\
     \hline
-    \multirow{8}{*}{\textbf{Secuencia normal}} & \textbf{Paso}                                                                                                         & \textbf{Acción}                                                                                                            \\
+    \multirow{7}{*}{\textbf{Secuencia normal}} & \textbf{Paso}                                                                                                         & \textbf{Acción}                                                                                                            \\
     \cline{2-3}
                                                & 1                                                                                                                     & \multicolumn{1}{L|}{El usuario solicita visualizar información sobre el vehículo desde la aplicación.}                     \\
     \cline{2-3}
@@ -173,7 +173,7 @@
     \cline{2-3}
                                                & 3                                                                                                                     & \multicolumn{1}{L|}{La placa \ac{VIMS} prepara la información que recibe del vehículo y la transmite hacia la aplicación.} \\
     \hline
-    \multirow{12}{*}{\textbf{Excepciones}}     & \textbf{Paso}                                                                                                         & \textbf{Acción}                                                                                                            \\
+    \multirow{10}{*}{\textbf{Excepciones}}     & \textbf{Paso}                                                                                                         & \textbf{Acción}                                                                                                            \\
     \cline{2-3}
                                                & 1.1                                                                                                                   & \multicolumn{1}{L|}{El usuario no está autenticado.}                                                                       \\
     \cline{2-3}
@@ -203,25 +203,25 @@
   \centering
   \begin{tabularx}{\textwidth}{|c|c|X|}
     \hline
-    \texttt{06}                                & \multicolumn{2}{c|}{\textit{Generación de eventos}}                                                                                                                                                                                                                                                                         \\
+    \texttt{06}                                 & \multicolumn{2}{c|}{\textit{Generación de eventos}}                                                                                                                                                                                                                                                                         \\
     \hline
-    \textbf{Descripción}                       & \multicolumn{2}{X|}{El dispositivo \ac{VIMS}, a la hora de enviar datos, podrá producir eventos según el tipo de información que haya de enviar.}                                                                                                                                                                           \\
+    \textbf{Descripción}                        & \multicolumn{2}{X|}{El dispositivo \ac{VIMS}, a la hora de enviar datos, podrá producir eventos según el tipo de información que haya de enviar.}                                                                                                                                                                           \\
     \hline
     \multirow{10}{*}{\textbf{Secuencia normal}} & \textbf{Paso}                                                                                                                                     & \textbf{Acción}                                                                                                                                                         \\
     \cline{2-3}
-                                               & 1                                                                                                                                                 & \multicolumn{1}{L|}{El dispositivo \ac{VIMS} genera información y la transmite hacia el servidor.}                                                                      \\
+                                                & 1                                                                                                                                                 & \multicolumn{1}{L|}{El dispositivo \ac{VIMS} genera información y la transmite hacia el servidor.}                                                                      \\
     \cline{2-3}
-                                               & 1.1                                                                                                                                               & \multicolumn{1}{L|}{Si la información a transmitir es ``normal'', se envía directamente al servidor.}                                                                   \\
+                                                & 1.1                                                                                                                                               & \multicolumn{1}{L|}{Si la información a transmitir es ``normal'', se envía directamente al servidor.}                                                                   \\
     \cline{2-3}
-                                               & 1.2                                                                                                                                               & \multicolumn{1}{L|}{Si la información a transmitir es eventual, se procesa el evento generando información estadística referente al mismo o mandando una notificación.} \\
+                                                & 1.2                                                                                                                                               & \multicolumn{1}{L|}{Si la información a transmitir es eventual, se procesa el evento generando información estadística referente al mismo o mandando una notificación.} \\
     \cline{2-3}
-                                               & 2                                                                                                                                                 & \multicolumn{1}{L|}{El servidor recibe el evento y se encarga de gestionarlo, como se vio en el \texttt{UC-04}.} \\
+                                                & 2                                                                                                                                                 & \multicolumn{1}{L|}{El servidor recibe el evento y se encarga de gestionarlo, como se vio en el \texttt{UC-04}.}                                                        \\
     \hline
-    \multirow{3}{*}{\textbf{Excepciones}}     & \textbf{Paso}                                                                                                                                     & \textbf{Acción}                                                                                                                                                         \\
+    \multirow{3}{*}{\textbf{Excepciones}}       & \textbf{Paso}                                                                                                                                     & \textbf{Acción}                                                                                                                                                         \\
     \cline{2-3}
-                                               & 1                                                                                                                                               & \multicolumn{1}{L|}{No hay ninguna cuenta asociada al dispositivo.}                                                                                                                    \\
+                                                & 1                                                                                                                                                 & \multicolumn{1}{L|}{No hay ninguna cuenta asociada al dispositivo.}                                                                                                     \\
     \cline{2-3}
-                                               & 1.1                                                                                                                                               & \multicolumn{1}{L|}{No hay conexión a Internet por parte del dispositivo \ac{VIMS}.}                                                                                    \\
+                                                & 1.1                                                                                                                                               & \multicolumn{1}{L|}{No hay conexión a Internet por parte del dispositivo \ac{VIMS}.}                                                                                    \\
     \hline
   \end{tabularx}
 \end{table}
@@ -239,25 +239,156 @@
   \centering
   \begin{tabularx}{\textwidth}{|c|c|X|}
     \hline
-    \texttt{06}                                & \multicolumn{2}{c|}{\textit{Generación de eventos}}                                                                                                                                                                                                                                                                         \\
+    \texttt{07.1}                               & \multicolumn{2}{c|}{\textit{Visualización de ubicación}}                                                                                                                                                                                                                                                                                                        \\
     \hline
-    \textbf{Descripción}                       & \multicolumn{2}{X|}{El dispositivo \ac{VIMS}, a la hora de enviar datos, podrá producir eventos según el tipo de información que haya de enviar.}                                                                                                                                                                           \\
+    \textbf{Descripción}                        & \multicolumn{2}{X|}{El usuario mediante una aplicación podrá visualizar la ubicación del vehículo en tiempo real. Si el vehículo está apagado, se visualiza la ubicación del aparcamiento.}                                                                                                                                                                     \\
     \hline
-    \multirow{10}{*}{\textbf{Secuencia normal}} & \textbf{Paso}                                                                                                                                     & \textbf{Acción}                                                                                                                                                         \\
+    \multirow{10}{*}{\textbf{Secuencia normal}} & \textbf{Paso}                                                                                                                                                                               & \textbf{Acción}                                                                                                                                                   \\
     \cline{2-3}
-                                               & 1                                                                                                                                                 & \multicolumn{1}{L|}{El dispositivo \ac{VIMS} genera información y la transmite hacia el servidor.}                                                                      \\
+                                                & 1                                                                                                                                                                                           & \multicolumn{1}{L|}{El usuario inicia una aplicación para visualizar la ubicación de su vehículo.}                                                                \\
     \cline{2-3}
-                                               & 1.1                                                                                                                                               & \multicolumn{1}{L|}{Si la información a transmitir es ``normal'', se envía directamente al servidor.}                                                                   \\
+                                                & 1.1                                                                                                                                                                                         & \multicolumn{1}{L|}{Si el vehículo se encuentra en movimiento, se visualiza la ubicación en tiempo real según se va actualizando.}                                \\
     \cline{2-3}
-                                               & 1.2                                                                                                                                               & \multicolumn{1}{L|}{Si la información a transmitir es eventual, se procesa el evento generando información estadística referente al mismo o mandando una notificación.} \\
+                                                & 1.2                                                                                                                                                                                         & \multicolumn{1}{L|}{Si el vehículo está apagado se considera que está aparcado y se visualiza la última ubicación conocida, correspondiente con el aparcamiento.} \\
     \cline{2-3}
-                                               & 2                                                                                                                                                 & \multicolumn{1}{L|}{El servidor recibe el evento y se encarga de gestionarlo, como se vio en el \texttt{UC-04}.} \\
+                                                & 2                                                                                                                                                                                           & \multicolumn{1}{L|}{Se realizan peticiones al servidor para obtener la información de la geolocalización.}                                                        \\
     \hline
-    \multirow{3}{*}{\textbf{Excepciones}}     & \textbf{Paso}                                                                                                                                     & \textbf{Acción}                                                                                                                                                         \\
+    \multirow{3}{*}{\textbf{Excepciones}}       & \textbf{Paso}                                                                                                                                                                               & \textbf{Acción}                                                                                                                                                   \\
     \cline{2-3}
-                                               & 1                                                                                                                                               & \multicolumn{1}{L|}{No hay ninguna cuenta asociada al dispositivo.}                                                                                                                    \\
+                                                & 1                                                                                                                                                                                           & \multicolumn{1}{L|}{No hay ningún dispositivo asociado a la cuenta.}                                                                                              \\
     \cline{2-3}
-                                               & 1.1                                                                                                                                               & \multicolumn{1}{L|}{No hay conexión a Internet por parte del dispositivo \ac{VIMS}.}                                                                                    \\
+                                                & 1.1                                                                                                                                                                                         & \multicolumn{1}{L|}{El vehículo está desconectado de la red, por lo que no se pueden transmitir los datos de geolocalización.}                                    \\
+    \cline{2-3}
+                                                & 1.2                                                                                                                                                                                         & \multicolumn{1}{L|}{No hay ningún dato de geolocalización almacenado.}                                                                                            \\
+    \cline{2-3}
+                                                & 2                                                                                                                                                                                           & \multicolumn{1}{L|}{La aplicación no cuenta con conexión a la red.}                                                                                               \\
+    \hline
+  \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+  \centering
+  \begin{tabularx}{\textwidth}{|c|c|X|}
+    \hline
+    \texttt{07.2}                               & \multicolumn{2}{c|}{\textit{Envío de ubicación}}                                                                                                                                                                                                                                                 \\
+    \hline
+    \textbf{Descripción}                        & \multicolumn{2}{X|}{La placa \ac{VIMS} enviará la información relativa al vehículo al servidor.}                                                                                                                                                                                                 \\
+    \hline
+    \multirow{18}{*}{\textbf{Secuencia normal}} & \textbf{Paso}                                                                                    & \textbf{Acción}                                                                                                                                                                               \\
+    \cline{2-3}
+                                                & 1                                                                                                & \multicolumn{1}{L|}{La placa actualiza la información sobre la ubicación del vehículo.}                                                                                                       \\
+    \cline{2-3}
+                                                & 1.1                                                                                              & \multicolumn{1}{L|}{Si se ha perdido la conexión con el vehículo (motor apagado), se considera que está aparcado y se envía la ubicación actual como ``ubicación de aparcado''.}              \\
+    \cline{2-3}
+                                                & 1.2                                                                                              & \multicolumn{1}{L|}{Si el vehículo está activo (motor encendido), se considera que está en movimiento y envía de forma periódica la ubicación actual del vehículo.}                           \\
+    \cline{2-3}
+                                                & 2                                                                                                & \multicolumn{1}{L|}{Según la precisión de las redes y la disponibilidad de las mismas, la ubicación se obtiene mediante dos métodos.}                                                         \\
+    \cline{2-3}
+                                                & 2.1                                                                                              & \multicolumn{1}{L|}{Se obtiene la ubicación mediante el uso de redes móviles cuando el módulo GPS no se encuentre disponible o no se tengan suficientes satélites.}                           \\
+    \cline{2-3}
+                                                & 2.2                                                                                              & \multicolumn{1}{L|}{Se obtiene la ubicación mediante el módulo GPS como primera alternativa, y se usan las redes móviles cuando estén disponibles para mejorar la precisión de la ubicación.} \\
+    \cline{2-3}
+                                                & 3                                                                                                & \multicolumn{1}{L|}{Se manda la ubicación obtenida al servidor y se enlaza a la cuenta asociada.}                                                                                             \\
+    \hline
+    \multirow{6}{*}{\textbf{Excepciones}}       & \textbf{Paso}                                                                                    & \textbf{Acción}                                                                                                                                                                               \\
+    \cline{2-3}
+                                                & 1                                                                                                & \multicolumn{1}{L|}{No hay ninguna cuenta asociada al dispositivo.}                                                                                                                           \\
+    \cline{2-3}
+                                                & 1.1                                                                                              & \multicolumn{1}{L|}{No hay ninguna conectividad de red disponible para realizar el envío de la ubicación.}                                                                                    \\
+    \cline{2-3}
+                                                & 3                                                                                                & \multicolumn{1}{L|}{La conexión de red no está disponible para realizar la transmisión de la información.}                                                                                    \\
+    \hline
+  \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+  \centering
+  \begin{tabularx}{\textwidth}{|c|c|X|}
+    \hline
+    \texttt{07.3}                              & \multicolumn{2}{c|}{\textit{Almacenamiento de los datos de ubicación}}                                                                                                                                                                                                        \\
+    \hline
+    \textbf{Descripción}                       & \multicolumn{2}{X|}{El servidor almacenará y gestionará los datos de ubicación recibidos por los múltiples dispositivos \ac{VIMS}.}                                                                                                                                           \\
+    \hline
+    \multirow{8}{*}{\textbf{Secuencia normal}} & \textbf{Paso}                                                                                                                       & \textbf{Acción}                                                                                                                         \\
+    \cline{2-3}
+                                               & 1                                                                                                                                   & \multicolumn{1}{L|}{El servidor recibe la información de la ubicación de un dispositivo \ac{VIMS}.}                                     \\
+    \cline{2-3}
+                                               & 1.1                                                                                                                                 & \multicolumn{1}{L|}{Los datos de ubicación se almacenan en una línea temporal para poder ver el histórico de ubicaciones del vehículo.} \\
+    \cline{2-3}
+                                               & 1.2                                                                                                                                 & \multicolumn{1}{L|}{El último valor de ubicación se almacena para una posterior visualización.}                                         \\
+    \cline{2-3}
+                                               & 2                                                                                                                                   & \multicolumn{1}{L|}{El servidor ofrece los datos de ubicación a través de la \ac{API}.}                                                 \\
+    \hline
+    \multirow{2}{*}{\textbf{Excepciones}}      & \textbf{Paso}                                                                                                                       & \textbf{Acción}                                                                                                                         \\
+    \cline{2-3}
+                                               & 1                                                                                                                                   & \multicolumn{1}{L|}{No hay ninguna cuenta asociada al dispositivo.}                                                                     \\
+    \hline
+  \end{tabularx}
+\end{table}
+
+\noindent\rule{\linewidth}{.2pt}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\linewidth]{diagrams/UseCases-UC8 - external modules.png}
+  \caption{Casos de uso \texttt{08*} -- \textit{conexión de módulos externos}}
+  \label{uc:external-modules}
+\end{figure}
+
+\begin{table}[H]
+  \centering
+  \begin{tabularx}{\textwidth}{|c|c|X|}
+    \hline
+    \texttt{08.1}                               & \multicolumn{2}{c|}{\textit{\ac{VIMS} como proveedor de datos}}                                                                                                                                                                                                                                       \\
+    \hline
+    \textbf{Descripción}                        & \multicolumn{2}{X|}{El dispositivo \ac{VIMS} enviará los datos al módulo externo donde este podrá operar con ellos.}                                                                                                                                                                                  \\
+    \hline
+    \multirow{11}{*}{\textbf{Secuencia normal}} & \textbf{Paso}                                                                                                        & \textbf{Acción}                                                                                                                                                                \\
+    \cline{2-3}
+                                                & 1                                                                                                                    & \multicolumn{1}{L|}{El módulo externo solicita leer datos de forma activa o pasiva, según se configure. Para ello, se comunica con la placa \ac{VIMS} y realiza la solicitud.} \\
+    \cline{2-3}
+                                                & 1.1                                                                                                                  & \multicolumn{1}{L|}{Se leen datos relativos al vehículo directamente proporcionados por el dispositivo \ac{VIMS}.}                                                             \\
+    \cline{2-3}
+                                                & 1.2                                                                                                                  & \multicolumn{1}{L|}{Se leen datos relativos al usuario y la información almacenada en el servidor usando la placa \ac{VIMS} como intermediario.}                               \\
+    \cline{2-3}
+                                                & 2                                                                                                                    & \multicolumn{1}{L|}{El módulo externo recibe la información solicitada y opera con ella.}                                                                                      \\
+    \hline
+    \multirow{5}{*}{\textbf{Excepciones}}       & \textbf{Paso}                                                                                                        & \textbf{Acción}                                                                                                                                                                \\
+    \cline{2-3}
+                                                & 1                                                                                                                    & \multicolumn{1}{L|}{No hay ningún dispositivo \ac{VIMS} conectado.}                                                                                                            \\
+    \cline{2-3}
+                                                & 1.1                                                                                                                  & \multicolumn{1}{L|}{El vehículo está desconectado.}                                                                                                                            \\
+    \cline{2-3}
+                                                & 1.2                                                                                                                  & \multicolumn{1}{L|}{No hay conectividad de red por lo que no se pueden leer los datos.}                                                                                        \\
+    \hline
+  \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+  \centering
+  \begin{tabularx}{\textwidth}{|c|c|X|}
+    \hline
+    \texttt{08.2}                               & \multicolumn{2}{c|}{\textit{\ac{VIMS} como proveedor de conexión}}                                                                                                                                                                                   \\
+    \hline
+    \textbf{Descripción}                        & \multicolumn{2}{X|}{El dispositivo \ac{VIMS} actuará como ``router'' permitiendo al módulo externo realizar comunicaciones con Internet.}                                                                                                            \\
+    \hline
+    \multirow{6}{*}{\textbf{Secuencia normal}} & \textbf{Paso}                                                                                                                             & \textbf{Acción}                                                                                          \\
+    \cline{2-3}
+                                                & 1                                                                                                                                         & \multicolumn{1}{L|}{El módulo externo solicita realizar una petición a través de Internet.}              \\
+    \cline{2-3}
+                                                & 2                                                                                                                                         & \multicolumn{1}{L|}{El dispositivo \ac{VIMS} recibe la información relativa a la petición y la efectúa.} \\
+    \cline{2-3}
+                                                & 3                                                                                                                                         & \multicolumn{1}{L|}{El módulo externo recibe los datos de la petición realizada.}                        \\
+    \hline
+    \multirow{6}{*}{\textbf{Excepciones}}       & \textbf{Paso}                                                                                                                             & \textbf{Acción}                                                                                          \\
+    \cline{2-3}
+                                                & 1                                                                                                                                         & \multicolumn{1}{L|}{No hay ninguna placa \ac{VIMS} conectada.}                                           \\
+    \cline{2-3}
+                                                & 1.1                                                                                                                                       & \multicolumn{1}{L|}{No hay conexión a la red.}                                                           \\
+    \cline{2-3}
+                                                & 2                                                                                                                                         & \multicolumn{1}{L|}{El tipo de petición a realizar no está soportada.}                                   \\
+    \cline{2-3}
+                                                & 3                                                                                                                                         & \multicolumn{1}{L|}{La respuesta recibida es demasiado grande para poder gestionarla.}                   \\
     \hline
   \end{tabularx}
 \end{table}
