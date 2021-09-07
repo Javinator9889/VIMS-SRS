@@ -1,6 +1,6 @@
 La especificación de requisitos de usuario pretende recoger las necesidades de
 los usuarios finales del producto para tenerlas en cuenta a lo largo del desarrollo
-del proyecto.
+del mismo.
 
 Para esta labor, se ha realizado un cuestionario voluntario donde la comunidad de
 conductores y no conductores informaban de sus preferencias, gustos, necesidades y
@@ -8,7 +8,7 @@ otra información que se pudiera considerar relevante.
 
 Como los encuestados se mezclaban, se ha decidido hacer una separación por
 conductores y no conductores teniendo en cuenta sus preferencias. La distribución
-de las preguntas quedaba de este estilo:
+de las preguntas quedaba de esta forma:
 
 \begin{enumerate}
   \item Se le pregunta al encuestado datos básicos y si es conductor.
@@ -89,7 +89,7 @@ Todo el desglose y el análisis se encuentra disponible en:
       20                  & Temperatura de la toma de aire             \\
       \hline
     \end{tabularx}
-    \caption{Puntuaciones obtenidas de forma general, por la población al completo (incluidos no conductores).}
+    \caption{Puntuaciones obtenidas de forma general, por la población al completo (conductores y no conductores).}
     \label{tab:global}
   \end{minipage}
   \hfill
@@ -120,7 +120,7 @@ Todo el desglose y el análisis se encuentra disponible en:
       20                  & Nivel de carga absoluta del motor \\
       \hline
     \end{tabularx}
-    \caption{Puntuaciones obtenidas de forma general, por la población al completo (excluídos no conductores).}
+    \caption{Puntuaciones obtenidas de forma general, por la población (excluídos los no conductores).}
     \label{tab:drivers}
   \end{minipage}
 \end{table}
@@ -156,7 +156,11 @@ A partir de lo anterior, se definen los siguientes requisitos de usuario:
 \begin{enumerate}[label=\textbf{\texttt{RU-\arabic*}}]
   \item\label{ru:rt} Como usuario no necesito que la información se muestre en tiempo
         real sino que se almacene para una posterior consulta, o bien en forma de
-        estadísticas o bien como datos en crudo.
+        estadísticas o bien como datos en crudo. Dichas estadísticas se conformarían
+        de la media, varianza, tendencia y moda de los datos de interés recogidos individualmente
+        por cada conductor durante el uso del vehículo, destacando la velocidad,
+        carga del motor, consumo, tiempo acelerando, metros ascendidos, metros descendidos,
+        etc.
   \item\label{ru:status} Como conductor me gustaría conocer de primera mano el estado
         del motor, a niveles tanto de temperatura de los elementos principales como
         de estado de los distintos elementos mecánicos del mismo.
@@ -165,8 +169,8 @@ A partir de lo anterior, se definen los siguientes requisitos de usuario:
         las ruedas, nivel de aceite, líquido de frenos, etc.
   \item\label{ru:notifications} Como usuario, y en estrecha relación con
         \ref{ru:maintenance}, me gustaría recibir una notificación o alerta sobre
-        cuándo se debe realizar el mantenimiento del vehículo. Del mismo modo,
-        también querría ser notificado si se detecta algún error o problema
+        cuándo se debe realizar el mantenimiento del vehículo. 
+  \item\label{ru:err-notifications} Como usuario también querría ser notificado si se detecta algún error o problema
         en el vehículo.
   \item\label{ru:parking} Como conductor, me gustaría saber dónde he aparcado el
         vehículo.
@@ -180,4 +184,14 @@ A partir de lo anterior, se definen los siguientes requisitos de usuario:
         funcionase bien, con tiempos de carga pequeños y sin ir a trompicones.
   \item\label{ru:intuitive} Como usuario, me gustaría que el sistema fuese accesible
         e intuitivo, simple a primera vista pero personalizable.
+        Se propone una interfaz como la que se muestra en la figura \ref{fig:data-ui}
+        que permite seleccionar el rango temporal sobre el cual evaluar los datos
+        y la información estadística definida en \ref{ru:rt}:
+
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=\linewidth]{images/data-ui.png}
+            \caption{Representación de los datos en la interfaz propuesta -- fuente: \url{https://grafana.csselectronics.stellarhosted.com/d/6qvL9OvMz/css-playground-obd2?orgId=1}.}
+            \label{fig:data-ui}
+        \end{figure}
 \end{enumerate}

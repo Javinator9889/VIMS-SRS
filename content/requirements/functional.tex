@@ -10,18 +10,13 @@ y características de \ac{VIMS}:
         estar conectado siempre a la red. De esta manera, se intenta cubrir la dependencia
         \ref{dep:internet} (pero se sigue sujeto a \ref{dep:connectivity}).
 
-        Para esta labor, se propone realizar un uso combinado de redes móviles 4G/3G/2G,
-        WiFi (si está disponible) y LoRa.
+        Para esta labor, se propone realizar un uso combinado de redes móviles 4G/3G/2G
+        y WiFi (si está disponible).
   \item\label{req:gps} El sistema deberá ser geolocalizable bien mediante el uso
         de tecnologías GPS o bien mediante el uso de redes móviles.
   \item\label{req:bt} El sistema usará redes \ac{PAN} para
         permitir la comunicación con dispositivos cercanos y mostrar información en
         tiempo casi real.
-  \item\label{req:start-stop} Cuando el vehículo se apague,
-        el sistema deberá transmitir los datos pendientes (o 
-        almacenarlos si no se cuenta con red -- dependencia \ref{dep:connectivity})
-        y proceder a su apagado. Este proceso no deberá durar más de 5 minutos (ver
-        \ref{nf:battery-duration}).
   \item\label{req:ota} El sistema, usando la conectividad de red, podrá actualizarse
         de forma remota para ofrecer nuevas funcionalidades.
 \end{enumerate}
@@ -38,8 +33,11 @@ y características de \ac{VIMS}:
   \item\label{req:gps-data} Además de los datos del vehículo definidos en \ref{req:info},
         el sistema deberá enviar información sobre la geolocalización del vehículo
         en sí, según lo estipulado en \ref{req:transmission}.
-  \item\label{req:storage} El sistema almacenará los datos en memoria hasta un máximo
-        de 7 días, si no se han podido transmitir.
+  \item\label{req:storage} El sistema almacenará los datos en memoria si no se han podido transmitir
+        hasta que o bien no quepan más datos o bien se hayan podido enviar. En caso
+        de que la memoria estuviese completa, mediante indicadores visuales se le
+        notificaría al usuario de este evento, dándole a entender que las entradas
+        más antiguas serán eliminadas (ver \ref{nf:s-data}).
   \item\label{req:time} El sistema deberá llevar un control del tiempo para asociar
         el dato con la marca temporal en la que se obtuvo.
   \item\label{req:conf} El sistema ofrecerá una interfaz desde la cual se podrá
@@ -47,8 +45,9 @@ y características de \ac{VIMS}:
   \item\label{req:parking} El sistema, una vez se aparque el vehículo, deberá
         notificar su última posición a modo de recordatorio de dónde se ha aparcado.
   \item\label{req:stats} Las estadísticas de los viajes se generan tras un periodo
-        de tiempo con el motor completamente apagado. Dicho periodo se establece
-        en 1 hora. Pasado ese tiempo, se generará la información relacionada con el
+        de tiempo con el motor apagado. Dicho periodo se establece por
+        defecto en 1 hora pero podrá ser configurable por el usuario desde la aplicación.
+        Pasado ese tiempo, se generará la información relacionada con el
         trayecto realizado y se pondrá a disposición del usuario en forma de estadísticas
         y datos en sí. Opcionalmente, el usuario recibiría una notificación una vez
         estuviesen disponibles.
@@ -83,7 +82,7 @@ y características de \ac{VIMS}:
 \subsubsection{Usuario}
 \begin{enumerate}[resume, label=\textbf{\texttt{RF-\arabic*}}]
   \item\label{req:register} El usuario se dará de alta en la plataforma y se
-        asociará dispositivo \ac{VIMS} a su cuenta.
+        asociará un dispositivo \ac{VIMS} a su cuenta.
   \item\label{req:rt} El usuario podrá usar su \textit{smartphone} para visualizar
         información en tiempo casi real de su vehículo.
   \item\label{req:maintenance} El usuario podrá definir información básica 
@@ -103,7 +102,7 @@ y características de \ac{VIMS}:
   \item\label{req:app-functions} La aplicación deberá poder conectarse de forma
         inalámbrica al sistema \ac{VIMS} en cuestión.
   \item\label{req:app-sampling} La aplicación deberá leer toda la información
-        obtenida por \ac{VIMS} en tiempo casi real.
+        obtenida por \ac{VIMS} con retardo mínimo de hasta $\numprint[ms]{200}$.
   \item\label{req:app-stats} La aplicación deberá poder mostrar información
         estadística en base a los datos almacenados en el servidor. Para ello,
         se hará uso del requisito \ref{req:api}.

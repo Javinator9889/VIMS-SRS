@@ -1,28 +1,22 @@
 \subsection*{Dependencias}
 \begin{enumerate}[label=\textbf{\texttt{DEP-\arabic*}}]
   \item\label{dep:internet} El sistema necesitará siempre de una conexión a Internet para funcionar.
-        En otro caso, almacenará los datos hasta 7 días para enviarlos lo antes
-        posible.
+        En otro caso, almacenará los datos en la memoria persistente que se estima de al menos $\numprint[Mb]{1}$.
   \item\label{dep:connectivity} El sistema dependerá del área geográfica en la que se encuentre para enviar
         información, ya que pueden existir zonas en donde no haya ningún tipo de
         conectividad.
-  \item\label{dep:gps} El sistema deberá localizarse al aire libre en una zona sin cubrir para
+  \item\label{dep:gps} El sistema deberá localizarse al aire libre en una zona sin apantallar la señal de los satélites para
         ofrecer los servicios de geolocalización al completo.
-  \item\label{dep:rt} Los dispositivos de visualización en tiempo casi real deberán encontrarse
+  \item\label{dep:rt} Los dispositivos de visualización deberán encontrarse
         en un rango suficientemente cercano para realizar la transmisión de la
         información. Dependerá de la tecnología de red utilizada:
         WiFi, Bluetooth o \ac{BLE}.
   \item\label{dep:network} Las redes que se usen para transmitir datos pueden variar con el tiempo
         así como su disponibilidad y velocidad. El sistema debe estar preparado
-        para este evento y adecuarse correctamente.
+        para este escenario y adecuarse correctamente.
   \item\label{dep:nt-speed} El método de transmisión y envío de datos por Internet hacia el servidor
         de gestión y almacenamiento debe ser lo más eficiente posible, ya que la
         calidad de la conexión puede ser mala (debido a \ref{dep:network}).
-  \item\label{dep:battery} El sistema deberá contar con una fuente de alimentación
-        auxiliar que le permita establecer un modo de bajo consumo para finalizar
-        la transmisión de las tramas si se cumple \ref{dep:connectivity} o bien
-        almacenar temporalmente los datos hasta que puedan ser transmitidos o enviados,
-        según \ref{dep:internet}.
 \end{enumerate}
 
 \subsection*{Supuestos}

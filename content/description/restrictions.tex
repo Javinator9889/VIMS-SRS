@@ -1,13 +1,12 @@
-El producto en principio no está restringido en términos de legalidad, ya que al
-ser algo que se integra directamente con el vehículo no necesita cumplir con
-ninguna regulación o legislación (el producto, como se especificó en el alcance
+El producto en principio no está restringido en términos de legalidad, ya que las
+actividades de monitorización que realiza en nada deberían
+alterar la funcionalidad del vehículo al que se conectan 
+(el producto, como se especificó en el alcance
 -- \ref{sec:aim}, no está diseñado para modificar parámetros relativos al
-vehículo. Si sirviese para realizar tareas de \textit{tunning} debiera estar
-regulado).
+vehículo).
 
 Por otra parte, el sistema no solo se compone del dispositivo que va sobre el
-automóvil en sí sino también de la aplicación de visualización en tiempo casi
-real y de la visualización de datos en forma de histórico o de estadísticas. Por
+automóvil en sí, sino también de la aplicación de visualización. Por
 consiguiente, el desarrollo al completo deberá realizarse teniendo en cuenta
 todos los componentes para que sea compatible desde el primer momento.
 
@@ -17,23 +16,20 @@ sección de requisitos de usuario (\ref{sec:user-req}), pero se comenta aquí ya
 que es una limitación en el desarrollo en cuanto a que define una característica
 que se considera necesaria.
 
-Además, como el sistema se integra con los automóviles, debe tomar alimentación de
-ellos directamente. Existe una casuística en la que el conductor apaga el
-coche pero existen datos que todavía no se han podido enviar y que se
-perderían irremediablemente, por lo que es necesario tener en cuenta dicha
-situación para sobrellevarla con, por ejemplo, una batería. Dicha batería
-debe tener suficiente capacidad como para poder transmitir todas las tramas
-restantes pero ser lo más pequeña posible para que no ocupe demasiado espacio.
-Como su capacidad se estima baja,
-\ac{VIMS} usará la energía proveniente de la batería única y exclusivamente
-cuando se pierda la energía del vehículo.
+Además, como el sistema se integra con los automóviles, la única fuente de
+alimentación será el vehículo en sí. Existe una casuística en la que el conductor apaga el
+coche pero existen datos que todavía no se han podido enviar. Ante esta situación,
+como el conector \ac{OBD} sigue ofreciendo alimentación, se tiene que detectar este
+evento y decidir si o bien se envían los datos pendientes si se cuenta con conexión de red o
+bien se almacenan en memoria persistente hasta que el vehículo se encienda de
+nuevo. De esta forma, no se compromete la batería del automóvil.
 
 Como se ha contemplado anteriormente, el sistema será geolocalizable. Esto
 conlleva tener en cuenta el consumo adicional de los módulos de geolocalización,
 los cuales suelen tener asociados un elevado gasto energético, para evitar
-un desgaste prematuro de la batería. Por otra parte, como la ubicación se puede 
-considerar información sensible, debe permanecer privada y accesible únicamente 
-al usuario poseedor de \ac{VIMS}.
+un desgaste prematuro de la batería. Por otra parte, como la información recogida
+del vehículo se puede considerar información sensible, debe permanecer privada y 
+accesible únicamente al usuario poseedor de \ac{VIMS}.
 
 Si el sistema funciona correctamente, se espera una implantación en el mercado
 elevada y que se empiece a redistribuir de forma nacional. Esto se produciría
