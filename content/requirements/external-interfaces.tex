@@ -4,43 +4,12 @@
   ser simples, claros y accesibles.
   \item\label{nf:devices} La interfaz de usuario estará distribuida en varios
   dispositivos: el servidor, la aplicación y \ac{VIMS} en sí. Desde las dos primeras,
-  se ofrecen los datos recibidos en tiempo casi real, estadísticas, perfiles de
+  se ofrecen los datos recibidos, estadísticas, perfiles de
   conducción, etc. Desde el sistema, se muestra una interfaz básica de registro,
   configuración de la misma y gestiones básicas.
   \item\label{nf:initial-config} La configuración inicial de \ac{VIMS} se realizará
   o bien desde la placa en sí o bien desde la aplicación. Ambas interfaces serán
   similares.
   \item\label{nf:notifications} Las notificaciones al usuario en principio se
-  realizan única y exclusivamente desde la aplicación. Sin embargo, en un futuro
-  no se descarta enviar notificaciones también desde la interfaz web.
-\end{enumerate}
-
-\subsubsection{Interfaces \textit{hardware}}
-\begin{enumerate}[resume, label=\textbf{\texttt{RNF-\arabic*}}]
-  \item\label{nf:hardware-obd} La interfaz \textit{hardware} debe permitir al sistema
-  conectarse con cualquier vehículo que equipe el conector estándar.
-  \item\label{nf:hardware-net} La interfaz \textit{hardware} debe permitir al sistema
-  la comunicación con el exterior por medio de redes móviles.
-  \item\label{nf:hardware-gps} La interfaz \textit{hardware} debe permitir al sistema
-  la geolocalización mediante redes móviles o \ac{GPS}.
-\end{enumerate}
-
-\subsubsection{Interfaces \textit{software}}
-\begin{enumerate}[resume, label=\textbf{\texttt{RNF-\arabic*}}]
-  \item\label{nf:protocol} La interfaz \textit{software} debe encapsular los
-  datos enviados usando el protocolo que se decida emplear en posteriores fases
-  de diseño.
-  \item\label{nf:encryption} La interfaz \textit{software} debe poder encriptar
-  los datos para su transmisión por la red.
-  \item\label{nf:compression} La interfaz \textit{software} debe poder comprimir
-  los datos para ahorrar durante su envío o almacenamiento.
-\end{enumerate}
-
-\subsubsection{Interfaces de comunicaciones}
-\begin{enumerate}[resume, label=\textbf{\texttt{RNF-\arabic*}}]
-  \item\label{nf:mobile} El sistema establecerá las comunicaciones con el servidor
-  primeramente usando redes móviles, como 4G/3G/2G y LoRaWAN.
-  \item\label{nf:wifi} El sistema establecerá las comunicaciones con el servidor
-  como segunda opción mediante redes inalámbricas tipo LAN, como WiFi o Bluetooth
-  (si están disponibles).
+  realizan única y exclusivamente desde la aplicación.
 \end{enumerate}

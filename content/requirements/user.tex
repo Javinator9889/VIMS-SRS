@@ -1,6 +1,6 @@
 La especificación de requisitos de usuario pretende recoger las necesidades de
 los usuarios finales del producto para tenerlas en cuenta a lo largo del desarrollo
-del proyecto.
+del mismo.
 
 Para esta labor, se ha realizado un cuestionario voluntario donde la comunidad de
 conductores y no conductores informaban de sus preferencias, gustos, necesidades y
@@ -8,7 +8,7 @@ otra información que se pudiera considerar relevante.
 
 Como los encuestados se mezclaban, se ha decidido hacer una separación por
 conductores y no conductores teniendo en cuenta sus preferencias. La distribución
-de las preguntas quedaba de este estilo:
+de las preguntas quedaba de esta forma:
 
 \begin{enumerate}
   \item Se le pregunta al encuestado datos básicos y si es conductor.
@@ -89,7 +89,7 @@ Todo el desglose y el análisis se encuentra disponible en:
       20                  & Temperatura de la toma de aire             \\
       \hline
     \end{tabularx}
-    \caption{Puntuaciones obtenidas de forma general, por la población al completo (incluidos no conductores).}
+    \caption{Puntuaciones obtenidas de forma general, por la población al completo (conductores y no conductores).}
     \label{tab:global}
   \end{minipage}
   \hfill
@@ -120,7 +120,7 @@ Todo el desglose y el análisis se encuentra disponible en:
       20                  & Nivel de carga absoluta del motor \\
       \hline
     \end{tabularx}
-    \caption{Puntuaciones obtenidas de forma general, por la población al completo (excluídos no conductores).}
+    \caption{Puntuaciones obtenidas de forma general, por la población (excluídos los no conductores).}
     \label{tab:drivers}
   \end{minipage}
 \end{table}
@@ -165,8 +165,8 @@ A partir de lo anterior, se definen los siguientes requisitos de usuario:
         las ruedas, nivel de aceite, líquido de frenos, etc.
   \item\label{ru:notifications} Como usuario, y en estrecha relación con
         \ref{ru:maintenance}, me gustaría recibir una notificación o alerta sobre
-        cuándo se debe realizar el mantenimiento del vehículo. Del mismo modo,
-        también querría ser notificado si se detecta algún error o problema
+        cuándo se debe realizar el mantenimiento del vehículo. 
+  \item\label{ru:err-notifications} Como usuario también querría ser notificado si se detecta algún error o problema
         en el vehículo.
   \item\label{ru:parking} Como conductor, me gustaría saber dónde he aparcado el
         vehículo.

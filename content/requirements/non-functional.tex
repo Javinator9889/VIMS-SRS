@@ -1,28 +1,21 @@
 \subsubsection{Precisión}
 \begin{enumerate}[label=\textbf{\texttt{RNF-\arabic*}}]
-  \item\label{nf:accuracy} El módulo de geolocalización deberá ofrecer una precisión elevada,
-  de entre 5 y 10 metros. Sin embargo, no se considera algo crítico (ver requisito
-  \ref{nf:net-acc}).
-  \item\label{nf:net-acc} Si el
-  módulo \ac{GPS} no se encuentra accesible se usarán las redes móviles para
-  obtener una ubicación aproximada. El rango máximo permitido está
-  entre 5 y 50 metros. Por ello, la precisión de la ubicación no es un factor
-  crítico ya que se permite bastante margen.
+  \item\label{nf:accuracy} El módulo de geolocalización ofrecerá una precisión
+  que vendrá limitada directamente por el sistema utilizado. Así, con el GPS se
+  puede llegar a obtener una precisión media de 5 metros mientras que con redes
+  móviles la precisión media está en torno a los 60 metros. Por ello, no se considera algo crítico.
 \end{enumerate}
 
 \subsubsection{Rendimiento}
 \begin{enumerate}[resume, label=\textbf{\texttt{RNF-\arabic*}}]
   \item\label{nf:read-speed} El sistema deberá leer y recibir los datos del
-  conector estándar a la máxima velocidad que permita este. Así, si por
-  ejemplo el conector ofrece 100 kbps, \ac{VIMS} deberá leer a esa velocidad.
-  Sin embargo, con la intención de acotar este campo, se establece el máximo
-  de velocidad aceptable en hasta 200 kbps.
+  conector estándar a la máxima velocidad que permita este.
   \item\label{nf:transmission-speed} El sistema enviará los datos a medida los
-  vaya recibiendo. Si hay congestión en la red, los almacenará en un \textit{buffer}
-  para un posterior envío.
+  vaya recibiendo. Si hay congestión en la red y los datos no se pueden enviar tan
+  rápido como se generan, se almacenarán en un \textit{buffer} hasta poder transmitirlos.
   \item\label{nf:rt-viewer} La aplicación móvil deberá recibir directamente los
-  datos desde el dispositivo \ac{VIMS} con una velocidad máxima de 200 kbps, como
-  se define en \ref{nf:read-speed}.
+  datos desde el dispositivo \ac{VIMS} con un retardo mínimo de $\numprint[ms]{200}$
+  desde su petición, indiferentemente de la tasa de refresco.
 \end{enumerate}
 
 \subsubsection{Disponibilidad}
@@ -47,7 +40,7 @@
   criterio se puede basar en usar la que ya esté activa (ya que el inicio de una
   interfaz de red conlleva un alto consumo); usar una red de menor potencia; o
   usar la red que esté disponible. En otro caso, se almacenarán los datos pendientes
-  de envío de manera eficiente en \ac{VIMS}.
+  de envío en \ac{VIMS}.
 \end{enumerate}
 
 \subsubsection{Extensibilidad}
@@ -55,17 +48,6 @@
   \item\label{nf:components} De cara a futuras implementaciones, aquellas interfaces
   que puedan ofrecer conectividad con dispositivos externos (I$_2$C, UART, \dots)
   se expondrán para añadir nuevos módulos al dispositivo.
-\end{enumerate}
-
-\subsubsection{Interoperabilidad}
-\begin{enumerate}[resume, label=\textbf{\texttt{RNF-\arabic*}}]
-  \item\label{nf:s2server} El sistema \ac{VIMS} podrá enviar información al servidor
-  remoto con los datos e información recogidos por el coche.
-  \item\label{nf:s2a} El sistema \ac{VIMS} se podrá comunicar directamente con la
-  aplicación móvil con los datos en tiempo casi real.
-  \item\label{nf:a2server} La aplicación móvil podrá comunicarse con el servidor
-  mediante la \ac{API} que se ha definido en \ref{req:api} para obtener información
-  sobre trayectos pasados y el conductor, así como para mostrar notificaciones.
 \end{enumerate}
 
 \subsubsection{Mantenibilidad}
@@ -84,8 +66,6 @@
   \item\label{nf:easy-conn} Como se mencionó en la perspectiva del producto (\ref{sec:perspective}),
   el sistema debe ser fácilmente montable y desmontable, permitiendo el uso directo
   del conector estándar para otras labores.
-  \item\label{nf:conn} El sistema deberá poder montarse fácilmente en cualquier
-  vehículo que integre un conector estándar.
 \end{enumerate}
 
 \subsubsection{Recuperabilidad}
@@ -95,24 +75,13 @@
   caso, permanecerá desactivado.
 \end{enumerate}
 
-\subsubsection{Confiabilidad}
-\begin{enumerate}[resume, label=\textbf{\texttt{RNF-\arabic*}}]
-  \item\label{nf:vehicle-data} El sistema deberá tener actualizados los parámetros
-  del vehículo para generar datos reales y fiables.
-  \item\label{nf:app-data} La aplicación deberá mostrar correctamente los datos
-  recibidos con su correspondiente unidad.
-  \item\label{nf:server-data} El servidor debe almacenar los datos respetando las
-  marcas temporales con las que se recibieron, almacenarlos correctamente así como
-  las estadísticas generadas.
-\end{enumerate}
-
 \subsubsection{Robustez}
 \begin{enumerate}[resume, label=\textbf{\texttt{RNF-\arabic*}}]
   \item\label{nf:ota-strength} El sistema no podrá fallar cuando se esté realizando
   una actualización OTA.
 \end{enumerate}
 
-\subsubsection{Seguridad (\textit{safety})}
+\subsubsection{Seguridad}
 \begin{enumerate}[resume, label=\textbf{\texttt{RNF-\arabic*}}]
   \item\label{nf:err-mobile} Si no se detecta ningún tipo de red, el sistema 
   avisará al usuario de dicho evento y se almacenarán los datos temporalmente hasta
@@ -134,20 +103,20 @@
   ser previamente verificadas, para evitar enviar información a otro(s) dispositivo(s)
   no autorizados.
   \item\label{nf:auth} Antes de acceder a ningún tipo de dato producido por \ac{VIMS},
-  el usuario deberá autenticarse propiamente.
+  el usuario deberá autenticarse apropiadamente.
 \end{enumerate}
 
 \subsubsection{Escalabilidad}
 \begin{enumerate}[resume, label=\textbf{\texttt{RNF-\arabic*}}]
   \item\label{nf:server-scalability} El servidor web puede recibir cientos (o miles)
-  de peticiones cada minuto, por lo que deberá escalar debidamente para poder gestionarlas.
+  de peticiones cada minuto, por lo que deben tomarse medidas específicas que faciliten
+  la escalabilidad del mismo.
 \end{enumerate}
 
 \subsubsection{Usabilidad}
 \begin{enumerate}[resume, label=\textbf{\texttt{RNF-\arabic*}}]
-  \item\label{nf:data} Los datos deberán ser fácilmente accesibles por el usuario
-  tanto desde la aplicación como desde la interfaz web.
   \item\label{nf:s-data} El sistema indicará distintos estados y mensajes mediante
-  indicadores visuales, como luces LED. Sin embargo, estos no deben ser especialmente
+  indicadores visuales, como luces LED. 
+  \item\label{nf:led-bright} Los indicadores visuales que se integren no deben ser especialmente
   brillantes o invasivos para evitar distracciones.
 \end{enumerate}

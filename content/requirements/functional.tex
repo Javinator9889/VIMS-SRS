@@ -38,8 +38,8 @@ y características de \ac{VIMS}:
   \item\label{req:gps-data} Además de los datos del vehículo definidos en \ref{req:info},
         el sistema deberá enviar información sobre la geolocalización del vehículo
         en sí, según lo estipulado en \ref{req:transmission}.
-  \item\label{req:storage} El sistema almacenará los datos en memoria hasta un máximo
-        de 7 días, si no se han podido transmitir.
+  \item\label{req:storage} El sistema almacenará los datos en memoria si no se han podido transmitir
+        hasta que o bien no quepan más datos o bien se hayan podido enviar.
   \item\label{req:time} El sistema deberá llevar un control del tiempo para asociar
         el dato con la marca temporal en la que se obtuvo.
   \item\label{req:conf} El sistema ofrecerá una interfaz desde la cual se podrá
@@ -47,8 +47,9 @@ y características de \ac{VIMS}:
   \item\label{req:parking} El sistema, una vez se aparque el vehículo, deberá
         notificar su última posición a modo de recordatorio de dónde se ha aparcado.
   \item\label{req:stats} Las estadísticas de los viajes se generan tras un periodo
-        de tiempo con el motor completamente apagado. Dicho periodo se establece
-        en 1 hora. Pasado ese tiempo, se generará la información relacionada con el
+        de tiempo con el motor completamente apagado. Dicho periodo se establece por
+        defecto en 1 hora pero podrá ser configurable por el usuario desde la aplicación.
+        Pasado ese tiempo, se generará la información relacionada con el
         trayecto realizado y se pondrá a disposición del usuario en forma de estadísticas
         y datos en sí. Opcionalmente, el usuario recibiría una notificación una vez
         estuviesen disponibles.
@@ -83,7 +84,7 @@ y características de \ac{VIMS}:
 \subsubsection{Usuario}
 \begin{enumerate}[resume, label=\textbf{\texttt{RF-\arabic*}}]
   \item\label{req:register} El usuario se dará de alta en la plataforma y se
-        asociará dispositivo \ac{VIMS} a su cuenta.
+        asociará un dispositivo \ac{VIMS} a su cuenta.
   \item\label{req:rt} El usuario podrá usar su \textit{smartphone} para visualizar
         información en tiempo casi real de su vehículo.
   \item\label{req:maintenance} El usuario podrá definir información básica 
