@@ -1,0 +1,103 @@
+\subsubsection{Precisión}
+\begin{enumerate}[label=\textbf{\texttt{RNF-\arabic*}}]
+  \item\label{nf:accuracy} El módulo de geolocalización ofrecerá una precisión
+  que vendrá limitada directamente por el sistema utilizado. Así, con el GPS se
+  puede llegar a obtener una precisión media de 5 metros mientras que con redes
+  móviles la precisión media está en torno a los 60 metros. Por ello, no se considera algo crítico.
+\end{enumerate}
+
+\subsubsection{Rendimiento}
+\begin{enumerate}[resume, label=\textbf{\texttt{RNF-\arabic*}}]
+  \item\label{nf:read-speed} El sistema deberá leer y recibir los datos del
+  conector estándar a la máxima velocidad que permita este.
+  \item\label{nf:transmission-speed} El sistema enviará los datos a medida los
+  vaya recibiendo. Si hay congestión en la red y los datos no se pueden enviar tan
+  rápido como se generan, se almacenarán en un \textit{buffer} hasta poder transmitirlos.
+  \item\label{nf:rt-viewer} La aplicación móvil deberá recibir directamente los
+  datos desde el dispositivo \ac{VIMS} con un retardo mínimo de $\numprint[ms]{200}$
+  desde su petición, indiferentemente de la tasa de refresco.
+\end{enumerate}
+
+
+\subsubsection{Eficiencia}
+\begin{enumerate}[resume, label=\textbf{\texttt{RNF-\arabic*}}]
+  \item\label{nf:battery-duration} Según la sección \ref{sec:restrictions},
+  se prevé que el dispositivo pueda funcionar sin alimentación directa del coche
+  cuando queden datos por enviar. Por razones de seguridad, el tiempo máximo que
+  el sistema permanecerá activo será de hasta una hora. Así se evita drenar la
+  batería del coche. Pasado ese periodo, los datos que no se pudieron transmitir
+  se almacenarán de forma definitiva en memoria persistente hasta que el vehículo
+  se encienda de nuevo.
+  \item\label{nf:network-election} A razón del requisito \ref{nf:battery-duration},
+  se deberá escoger la red priorizando aquella que suponga un menor consumo. Este
+  criterio se puede basar en usar la que ya esté activa (ya que el inicio de una
+  interfaz de red conlleva un alto consumo), usar una red de menor potencia o
+  usar la red que esté disponible. En otro caso, se almacenarán los datos pendientes
+  de envío en \ac{VIMS}.
+\end{enumerate}
+
+\subsubsection{Mantenibilidad}
+\begin{enumerate}[resume, label=\textbf{\texttt{RNF-\arabic*}}]
+  \item\label{nf:solid} Los componentes \textit{software} estarán estructurados
+  siguiendo patrones de código limpio (como los principios S.O.L.I.D.) de forma
+  que permitan una fácil mantenibilidad del mismo.
+  \item\label{nf:ota-time} Las actualizaciones OTA no deberán tardar más de
+  5 minutos en instalarse (se obvia el tiempo de descarga debido a que se depende
+  directamente de la red en la que se esté conectado), para evitar un alto periodo
+  de \textit{downtime}.
+\end{enumerate}
+
+\subsubsection{Portabilidad}
+\begin{enumerate}[resume, label=\textbf{\texttt{RNF-\arabic*}}]
+  \item\label{nf:easy-conn} Como se mencionó en la perspectiva del producto (\ref{sec:perspective}),
+  el sistema debe ser fácilmente montable y desmontable, permitiendo el uso directo
+  del conector estándar para otras labores.
+\end{enumerate}
+
+\subsubsection{Recuperabilidad}
+\begin{enumerate}[resume, label=\textbf{\texttt{RNF-\arabic*}}]
+  \item\label{nf:restart-time} En caso de fallo inesperado del sistema, este
+  deberá reiniciarse en no más de 30 segundos, si el vehículo está activo. En otro
+  caso, permanecerá desactivado.
+\end{enumerate}
+
+\subsubsection{Seguridad}
+\begin{enumerate}[resume, label=\textbf{\texttt{RNF-\arabic*}}]
+  \item\label{nf:err-mobile} Si no se detecta ningún tipo de red, el sistema
+  avisará al usuario de dicho evento y se almacenarán los datos temporalmente hasta
+  que esté disponible.
+  \item\label{nf:err-app} Si la aplicación no detecta conexión con el servidor,
+  notificará al usuario de dicho evento.
+  \item\label{nf:err-gps} Dependiendo de la precisión de la ubicación del GPS,
+  el sistema informará al usuario de la calidad del mismo y de las ``consecuencias''
+  (falta de precisión en el recorrido, en el aparcamiento, etc.).
+\end{enumerate}
+
+\subsubsection{Integridad}
+\begin{enumerate}[resume, label=\textbf{\texttt{RNF-\arabic*}}]
+  \item\label{nf:enc} Los mensajes enviados hacia y desde el servidor estarán siempre
+  cifrados y debidamente protegidos.
+  \item\label{nf:ota-int} Las actualizaciones de la placa deberán estar verificadas
+  y protegidas, para evitar instalar \textit{malware} de un atacante.
+  \item\label{nf:s2a-int} Las comunicaciones directas con la aplicación deberán
+  ser previamente verificadas, para evitar enviar información a otro(s) dispositivo(s)
+  no autorizados.
+  \item\label{nf:auth} Antes de acceder a ningún tipo de dato producido por \ac{VIMS},
+  el usuario deberá autenticarse apropiadamente.
+\end{enumerate}
+
+\subsubsection{Escalabilidad}
+\begin{enumerate}[resume, label=\textbf{\texttt{RNF-\arabic*}}]
+  \item\label{nf:server-scalability} El servidor web puede recibir cientos (o miles)
+  de peticiones cada minuto, por lo que deben tomarse medidas específicas que faciliten
+  la escalabilidad del mismo.
+\end{enumerate}
+
+\subsubsection{Usabilidad}
+\begin{enumerate}[resume, label=\textbf{\texttt{RNF-\arabic*}}]
+  \item\label{nf:s-data} El sistema indicará distintos estados y mensajes mediante
+  indicadores visuales, como luces LED.
+  \item\label{nf:led-bright} Los indicadores visuales que se integren podrán ser ajustables
+  por el usuario mediante un potenciómetro, que permitirá regular la intensidad lumínica
+  a gusto del conductor.
+\end{enumerate}

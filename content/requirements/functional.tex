@@ -1,0 +1,111 @@
+Analizando las características del producto y las necesidades del mercado, se
+proponen los siguientes requisitos funcionales con respecto a diversas temáticas
+y características de \ac{VIMS}:
+
+\subsubsection{Conectividad}
+\begin{enumerate}[label=\textbf{\texttt{RF-\arabic*}}]
+  \item\label{req:connectivity} El sistema se conectará a cualquier vehículo que use
+        un conector estándar, como el \ac{OBD}.
+  \item\label{req:network} El sistema usará redes móviles para intentar
+        estar conectado siempre a la red. De esta manera, se intenta cubrir la dependencia
+        \ref{dep:internet} (pero se sigue sujeto a \ref{dep:connectivity}).
+
+        Para esta labor, se propone realizar un uso combinado de redes móviles 4G/3G/2G
+        y WiFi (si está disponible).
+  \item\label{req:gps} El sistema deberá ser geolocalizable bien mediante el uso
+        de tecnologías GPS o bien mediante el uso de redes móviles.
+  \item\label{req:bt} El sistema usará redes \ac{PAN} para
+        permitir la comunicación con dispositivos cercanos y mostrar información en
+        tiempo casi real.
+  \item\label{req:ota} El sistema, usando la conectividad de red, podrá actualizarse
+        de forma remota para ofrecer nuevas funcionalidades.
+\end{enumerate}
+
+\subsubsection{Datos}
+\begin{enumerate}[resume, label=\textbf{\texttt{RF-\arabic*}}]
+  \item\label{req:info} El sistema recogerá todo tipo de datos emitidos por el
+        vehículo y los clasificará según corresponda, con sus unidades de medida
+        e información que representa.
+  \item\label{req:transmission} En relación con el requisito \ref{req:info},
+        el sistema emitirá esos datos a un servicio en la red para su gestión. Los
+        datos deberán ir acompañados de una marca temporal que permita identificar
+        el instante origen, como se especifica posteriormente en \ref{req:time}.
+  \item\label{req:gps-data} Además de los datos del vehículo definidos en \ref{req:info},
+        el sistema deberá enviar información sobre la geolocalización del vehículo
+        en sí, según lo estipulado en \ref{req:transmission}.
+  \item\label{req:storage} El sistema almacenará los datos en memoria si no se han podido transmitir
+        hasta que o bien no quepan más datos o bien se hayan podido enviar. En caso
+        de que la memoria estuviese completa, mediante indicadores visuales se le
+        notificaría al usuario de este evento, dándole a entender que las entradas
+        más antiguas serán eliminadas (ver \ref{nf:s-data}).
+  \item\label{req:time} El sistema deberá llevar un control del tiempo para asociar
+        el dato con la marca temporal en la que se obtuvo.
+  \item\label{req:conf} El sistema ofrecerá una interfaz desde la cual se podrá
+        configurar la cuenta asociada y el dispositivo en sí.
+  \item\label{req:parking} El sistema, una vez se aparque el vehículo, deberá
+        notificar su última posición a modo de recordatorio de dónde se ha aparcado.
+  \item\label{req:stats} Las estadísticas de los viajes se generan tras un periodo
+        de tiempo con el motor apagado. Dicho periodo se establece por
+        defecto en 1 hora pero podrá ser configurable por el usuario desde la aplicación.
+        Pasado ese tiempo, se generará la información relacionada con el
+        trayecto realizado y se pondrá a disposición del usuario en forma de estadísticas
+        y datos en sí. Opcionalmente, el usuario recibiría una notificación una vez
+        estuviesen disponibles.
+  \item\label{req:periodic-stats} Además de las estadísticas de los viajes,
+        se generarán estadísticas temporales: cada semana, cada mes y cada año.
+        En ellas, el usuario conocerá de primera mano el uso que ha hecho del coche,
+        gasto estimado, desgastes, etc. y se le notificarán cuando estén disponibles.
+\end{enumerate}
+
+\subsubsection{Servidor}
+\begin{enumerate}[resume, label=\textbf{\texttt{RF-\arabic*}}]
+  \item\label{req:reception} El servicio web recibirá los datos transmitidos por los
+        múltiples sistemas \ac{VIMS} que existan.
+  \item\label{req:management} El servicio web clasificará la información recibida
+        por cada dispositivo y la asociará a la cuenta del usuario correspondiente.
+  \item\label{req:visualization} El servicio web ofrecerá una interfaz en donde
+        el usuario podrá ver información relacionada con sus últimos viajes,
+        estadísticas e información del vehículo.
+  \item\label{req:api} El servicio web ofrecerá una \ac{API} para acceder
+        desde otras máquinas a los datos almacenados e
+        información estadística.
+  \item\label{req:gps-follow} El servicio web mostrará información sobre la
+        ubicación actual del coche, trazando un mapa con la ruta realizada.
+  \item\label{req:server-parking} El servicio web mostrará al usuario la última
+        ubicación conocida del vehículo, es decir, dónde está aparcado.
+  \item\label{req:data-duration} El servidor almacenará los datos en principio de
+        forma indefinida. Como todavía no se conoce la cantidad de información
+        que se almacenará, en un futuro este requisito puede ser modificado y
+        se puede establecer una temporalidad de los datos.
+\end{enumerate}
+
+\subsubsection{Usuario}
+\begin{enumerate}[resume, label=\textbf{\texttt{RF-\arabic*}}]
+  \item\label{req:register} El usuario se dará de alta en la plataforma y se
+        asociará un dispositivo \ac{VIMS} a su cuenta.
+  \item\label{req:rt} El usuario podrá usar su \textit{smartphone} para visualizar
+        información en tiempo casi real de su vehículo.
+  \item\label{req:maintenance} El usuario podrá definir información básica 
+        sobre el estado del vehículo actualmente. De esta forma, tras el tiempo
+        estipulado por el fabricante o tras cierto kilometraje este recibirá una
+        notificación indicándole los mantenimientos a realizar.
+  \item\label{req:driving} El sistema usará la información recogida según los
+        requisitos \ref{req:info} y \ref{req:gps-data} para ofrecerle al usuario
+        un perfil personalizado sobre su conducción. En dicho perfil se tendrán
+        en cuenta los datos de revoluciones del motor, intensidad del acelerador,
+        desnivel del terreno, consumo del vehículo, distancia recorrida y demás
+        para adecuarlo bajo un perfil propio según diversos modelos existentes \cite{husseinaliameenDrivingBehaviourIdentification2021}.
+\end{enumerate}
+
+\subsubsection{Aplicación móvil}
+\begin{enumerate}[resume, label=\textbf{\texttt{RF-\arabic*}}]
+  \item\label{req:app-functions} La aplicación deberá poder conectarse de forma
+        inalámbrica al sistema \ac{VIMS} en cuestión.
+  \item\label{req:app-sampling} La aplicación deberá leer toda la información
+        obtenida por \ac{VIMS} con retardo mínimo de hasta $\numprint[ms]{200}$.
+  \item\label{req:app-stats} La aplicación deberá poder mostrar información
+        estadística en base a los datos almacenados en el servidor. Para ello,
+        se hará uso del requisito \ref{req:api}.
+  \item\label{req:location} La aplicación podrá mostrar la última ubicación
+        conocida del vehículo, es decir, dónde está aparcado.
+\end{enumerate}

@@ -1,0 +1,39 @@
+\subsection*{Dependencias}
+\begin{enumerate}[label=\textbf{\texttt{DEP-\arabic*}}]
+  \item\label{dep:internet} El sistema necesitará siempre de una conexión a Internet para funcionar.
+        En otro caso, almacenará los datos en la memoria persistente que se estima de al menos $\numprint[Mb]{1}$.
+  \item\label{dep:connectivity} El sistema dependerá del área geográfica en la que se encuentre para enviar
+        información, ya que pueden existir zonas en donde no haya ningún tipo de
+        conectividad.
+  \item\label{dep:gps} El sistema deberá localizarse al aire libre en una zona sin apantallar la señal de los satélites para
+        ofrecer los servicios de geolocalización al completo.
+  \item\label{dep:rt} Los dispositivos de visualización deberán encontrarse
+        en un rango suficientemente cercano para realizar la transmisión de la
+        información. Dependerá de la tecnología de red utilizada:
+        WiFi, Bluetooth o \ac{BLE}.
+  \item\label{dep:network} Las redes que se usen para transmitir datos pueden variar con el tiempo
+        así como su disponibilidad y velocidad. El sistema debe estar preparado
+        para este escenario y adecuarse correctamente.
+  \item\label{dep:nt-speed} El método de transmisión y envío de datos por Internet hacia el servidor
+        de gestión y almacenamiento debe ser lo más eficiente posible, ya que la
+        calidad de la conexión puede ser mala (debido a \ref{dep:network}).
+\end{enumerate}
+
+\subsection*{Supuestos}
+\begin{enumerate}[label=\textbf{\texttt{SUP-\arabic*}}]
+  \item\label{sup:connectivity} Se supone que el vehículo en que se implante el sistema contará con un
+        conector estándar que permita las comunicaciones y la alimentación del módulo,
+        como el \ac{OBD}.
+  \item\label{sup:server} Se supone que el servidor de recolección de datos será
+        capaz de aguantar la demanda de los dispositivos destinados a pruebas y de
+        una cantidad considerable de dispositivos en entorno de producción.
+  \item\label{sup:uid} Se supone que cada \ac{VIMS} contará con un identificador
+        único que permitirá identificar al dispositivo inequívocamente del resto.
+  \item\label{sup:users} Se supone que cada usuario poseedor de un \ac{VIMS} contará
+        con acceso a Internet recurrente y dispondrá de una cuenta en el servicio de
+        estadísticas que le permita vincular su(s) dispositivo(s) \ac{VIMS} a su
+        cuenta, según el \ref{sup:uid}.
+  \item\label{sup:pids} Se supone que las tramas transmitidas por el vehículo
+        son las estándar definidas de forma global para los automóviles del mercado.
+        Este supuesto guarda una estrecha relación con \ref{sup:connectivity}.
+\end{enumerate}

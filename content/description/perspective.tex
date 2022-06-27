@@ -1,0 +1,59 @@
+\ac{VIMS} se constituirá de un módulo independiente diseñado desde cero aprovechando
+las tecnologías que ofrecen los vehículos de forma estándar (como el conector
+\ac{OBD}).
+
+La intención principal es ofrecer un sistema de recolección de métricas autónomo,
+automático y lo más simple posible para el usuario, que siga la idea de ``conectar y funcionar'',
+con la intención de salvar la diferencia tecnológica existente entre vehículos
+y otorgarle al conductor el control total.
+
+Al igual que se narró en el alcance (\ref{sec:aim}), el objetivo principal del proyecto es
+el de desarrollar un sistema autónomo que pueda funcionar con cualquier vehículo
+del mercado (que cumpla con las condiciones especificadas) y que permita generar,
+recolectar, procesar y mostrar cientos de datos relativos al coche y su estado
+actual y estado pasado.
+
+Para ello, se necesitará de una conexión permanente y activa a Internet (siempre
+y cuando sea posible) por la cual se enviarán en flujo los datos del vehículo.
+En posteriores etapas de diseño se valorará la cantidad de datos a enviar según
+la red en uso, disponibilidad de los recursos, saturación local, \textit{jitter}
+en las comunicaciones, etc.
+
+La transmisión de los datos recibidos constituyen la cualidad característica
+del sistema. Sin embargo, como es posible que por factores del entorno ciertos
+valores no se puedan transmitir en el momento, estos se almacenarán en memoria
+persistente (mínimo $\numprint[Mb]{1}$) hasta que haya una conexión de red
+por la que enviarlos.
+
+Por otra parte, se ofrece la posibilidad de ver los datos con retardo mínimo: dado que
+no siempre es adecuado observar los datos \textit{a posteriori} sino que puede ser necesario evaluarlos en el momento, se podrá observar información en
+el momento del estado del vehículo, información de sensores, etc. Esta
+visualización se realizará mediante un dispositivo externo al sistema como
+puede ser un \textit{smartphone}. Para facilitar la integración, se desarrollará
+en paralelo una aplicación móvil específicamente diseñada para \ac{VIMS}.
+
+Entre las demás características del producto, se contempla una más que es la
+geolocalización del vehículo. Para ello, se usarán las distintas redes con
+las que contará el producto así como el \ac{GPS}. De esta forma,
+al usuario final no solo se le mostrarán estadísticas e información sobre sus
+desplazamientos sino que también sabrá en qué puntos ha estado y así obtener más
+información con respecto a su conducción. Esto permite también usar \ac{VIMS} como
+medida de seguridad, en caso de hurto del vehículo, para saber su ubicación
+precisa. También puede ser útil como recordatorio de dónde estaba aparcado el
+coche, ya que solo habrá que revisar la última ubicación.
+
+Finalmente, el sistema deberá integrarse de forma fácil y sencilla, y así debe ser
+también su utilización. Esto se traduce en que tanto el
+montaje como el desmontaje debe ser sencillo, permitiendo que si se necesita acceso
+a los puertos estándar del vehículo el sistema no será un impedimento.
+
+En definitiva, para conductores de vehículos que quieran conocer
+más información sobre su automóvil, que necesiten hacer diagnósticos o que quieran
+estadísticas/datos, \ac{VIMS} es un sistema autónomo integrado
+que ayuda al conductor a generar y obtener los datos mencionados anteriormente. 
+A diferencia de otras soluciones presentes
+en el mercado, nuestro producto permitirá integrarse sin dificultades en cualquier
+vehículo que cumpla con los estándares y sin ninguna configuración adicional para
+el usuario. Además, será personalizable y podrá recibir actualizaciones
+y mejoras que aumenten su funcionalidad y amplíen su compatibilidad 
+con nuevos vehículos.
